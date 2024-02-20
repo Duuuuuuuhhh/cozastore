@@ -1,0 +1,17 @@
+/* Configuração e Clone do Repositório GIT */
+git config --global user.name "Eduardo Simionato Nogueira"
+git config --global user.email edunogueira793@gmail.com
+git clone 
+
+/* Criando o projeto*/
+dotnet new mvc -o Cozastore 
+
+
+
+/* Para executar o projeto */
+dotnet watch run
+
+/* Subindo o projeto no GIT*/
+git add .
+git commit -m "Descrever as alterações realizadas no projeto"
+git push
