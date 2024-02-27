@@ -6,12 +6,10 @@ git clone
 /* Criando o projeto*/
 dotnet new mvc -o Cozastore 
 
-
-
-/* Para executar o projeto */
-dotnet watch run
-
-/* Subindo o projeto no GIT*/
-git add .
-git commit -m "Descrever as alterações realizadas no projeto"
-git push
+Nuget Gallery
+    Shift + ctrl + P
+    -pesquisar e instalar:
+        EntityFrameworkCore
+        EntityFrameworkCore.Design
+        EntityFrameworkCore.InMemory
+        AspNetCore.Identity.EntityFrameworkCore
