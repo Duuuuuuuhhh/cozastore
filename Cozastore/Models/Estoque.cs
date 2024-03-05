@@ -12,25 +12,25 @@ public class Estoque
 
     [Display(Name = "Produto")]
     [Required(ErrorMessage = "Por favor, informe o produto")]
-    public string ProdutoId { get; set; }
+    public int ProdutoId { get; set; }
     [ForeignKey("ProdutoId")]
     public Produto Produto {get; set;}
     
     [Display(Name = "Tamanho")]
     [Required(ErrorMessage = "Por favor, informe o tamanho")]
-    public string TamanhoId { get; set; }
+    public int TamanhoId { get; set; }
     [ForeignKey("TamanhoId")]
     public Tamanho Tamanho {get; set;}
 
     [Display(Name = "Cor")]
     [Required(ErrorMessage = "Por favor, informe o cor")]
-    public string CorId { get; set; }
+    public int CorId { get; set; }
     [ForeignKey("CorId")]
     public Cor Cor {get; set;}
 
     [Display(Name = "Preço")]
     [Column(TypeName = "decimal(10,2)")] 
-    public Decimal? Preco {get; set;}
+    public decimal? Preco {get; set;}
 
     [Display(Name = "Preço com Desconto")]
     [Column(TypeName = "decimal(10,2)")] 

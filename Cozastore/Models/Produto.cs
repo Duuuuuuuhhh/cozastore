@@ -28,7 +28,7 @@ public class Produto
     [Display(Name = "Preço")]
     [Column(TypeName = "decimal(10,2)")] 
     [Required(ErrorMessage = "Por favor, informe o Preço da Venda")]
-    public Decimal Preco {get; set;}
+    public decimal Preco {get; set;}
 
     [Display(Name = "Preço com Desconto")]
     [Column(TypeName = "decimal(10,2)")] 

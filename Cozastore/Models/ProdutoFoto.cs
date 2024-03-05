@@ -12,7 +12,7 @@ public class ProdutoFoto
 
     [Display(Name = "Produto")]
     [Required(ErrorMessage = "Por favor, informe o produto")]
-    public string ProdutoId { get; set; }
+    public int ProdutoId { get; set; }
     [ForeignKey("ProdutoId")]
     public Produto Produto {get; set;}
 
