@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string conn = builder.Configuration.GetConnectionString("CozastoreConn");
-
+string conn = builder.Configuration
+    .GetConnectionString("CozastoreConn");
 builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseInMemoryDatabase(conn)
+    opt => opt.UseInMemoryDatabase(conn)
 );
 
 builder.Services.AddControllersWithViews();

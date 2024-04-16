@@ -6,7 +6,7 @@ namespace Cozastore.Models;
 [Table("Categoria")]
 public class Categoria
 {
-     [Key]
+    [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
@@ -17,7 +17,7 @@ public class Categoria
     [StringLength(300)]
     public string Foto { get; set; }
 
-    [Display(Name = "Exibir como Filtro?")]
+    [Display(Name = "Exibir como filtro?")]
     public bool Filtrar { get; set; }
 
     [Display(Name = "Exibir como Banner?")]
@@ -26,5 +26,9 @@ public class Categoria
     [Display(Name = "Categoria Mãe")]
     public int? CategoriaMaeId { get; set; }
     [ForeignKey("CategoriaMaeId")]
+    [Display(Name = "Categoria Mãe")]
     public Categoria CategoriaMae { get; set; }
+
+    public ICollection<Produto> Produtos { get; set; }
+
 }

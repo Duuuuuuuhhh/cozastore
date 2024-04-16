@@ -17,6 +17,15 @@ public class CategoriasController : Controller
         _host = host;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetCategorias()
+    {
+        var categorias = await _context.Categorias
+                .Include(c => c.CategoriaMae)
+                .ToListAsync();
+        return Json(new { data = categorias });
+    }
+
     // GET: Categorias
     public async Task<IActionResult> Index()
     {
@@ -101,7 +110,7 @@ public class CategoriasController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Foto,Filtrar,Banner,CategoriaMaeId")] Categoria categoria)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Foto,Filtrar,Banner,CategoriaMaeId")] Categoria categoria, IFormFile NovaFoto)
     {
         if (id != categoria.Id)
         {
@@ -112,6 +121,18 @@ public class CategoriasController : Controller
         {
             try
             {
+                if (NovaFoto != null)
+                {
+                    string fileName = categoria.Id + Path.GetExtension(NovaFoto.FileName);
+                    string upload = Path.Combine(_host.WebRootPath, "img\\categorias");
+                    string newFile = Path.Combine(upload, fileName);
+                    using (var stream = new FileStream(newFile, FileMode.Create))
+                    {
+                        NovaFoto.CopyTo(stream);
+                    }
+                    categoria.Foto = "\\img\\categorias\\" + fileName;
+                    await _context.SaveChangesAsync();
+                }
                 _context.Update(categoria);
                 await _context.SaveChangesAsync();
             }
@@ -171,4 +192,3 @@ public class CategoriasController : Controller
         return _context.Categorias.Any(e => e.Id == id);
     }
 }
-

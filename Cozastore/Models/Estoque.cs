@@ -11,32 +11,32 @@ public class Estoque
     public int Id { get; set; }
 
     [Display(Name = "Produto")]
-    [Required(ErrorMessage = "Por favor, informe o produto")]
+    [Required(ErrorMessage = "Por favor, informe o Produto")]
     public int ProdutoId { get; set; }
     [ForeignKey("ProdutoId")]
-    public Produto Produto {get; set;}
-    
+    public Produto Produto { get; set; }
+
     [Display(Name = "Tamanho")]
-    [Required(ErrorMessage = "Por favor, informe o tamanho")]
+    [Required(ErrorMessage = "Por favor, informe o Tamanho")]
     public int TamanhoId { get; set; }
     [ForeignKey("TamanhoId")]
-    public Tamanho Tamanho {get; set;}
-
+    public Tamanho Tamanho { get; set; }
+    
     [Display(Name = "Cor")]
-    [Required(ErrorMessage = "Por favor, informe o cor")]
+    [Required(ErrorMessage = "Por favor, informe a Cor")]
     public int CorId { get; set; }
     [ForeignKey("CorId")]
-    public Cor Cor {get; set;}
+    public Cor Cor { get; set; }
 
     [Display(Name = "Preço")]
-    [Column(TypeName = "decimal(10,2)")] 
-    public decimal? Preco {get; set;}
-
+    [Column(TypeName = "decimal(10,2)")]  // 99.999.999,99
+    public decimal? Preco { get; set; }
+    
     [Display(Name = "Preço com Desconto")]
-    [Column(TypeName = "decimal(10,2)")] 
+    [Column(TypeName = "decimal(10,2)")]  // 99.999.999,99
     public decimal? PrecoDesconto { get; set; }
 
-    [Display(Name = "Qtde de Estoque")]
-    [Required(ErrorMessage = "Por favor, informe a qtde em Estoque")]
+    [Display(Name = "Qtde em Estoque")]
+    [Required(ErrorMessage = "Por favor, informe a Qtde em Estoque")]
     public int QtdeEstoque { get; set; } = 0;
 }
