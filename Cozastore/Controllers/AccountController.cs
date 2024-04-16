@@ -35,7 +35,7 @@ namespace Cozastore.Controllers;
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM login)
         {
-            
+
             return View(login);
         }
 
