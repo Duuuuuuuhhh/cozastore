@@ -1,5 +1,4 @@
 /* Configuração e Clone do Repositório GIT */
-git config --global user.name "Eduardo Simionato Nogueira"
 git config --global user.email edunogueira793@gmail.com
 git clone 
 
